@@ -1,0 +1,90 @@
+import { Twitter, Linkedin, Facebook } from "lucide-react";
+
+const Footer = () => {
+  const handleSocialClick = (platform: string) => {
+    console.log(`${platform} clicked`);
+    // Add your social media navigation logic here
+  };
+
+  const handleNavClick = (section: string) => {
+    console.log(`${section} clicked`);
+    // Add your navigation logic here
+  };
+
+  return (
+    <footer className="py-16 bg-background">
+      <div className="container mx-auto px-8">
+        <div className="flex flex-col items-center space-y-8">
+          {/* Header with Navigation */}
+          <div className="flex items-center justify-between w-full max-w-4xl">
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              <button
+                onClick={() => handleSocialClick('Facebook')}
+                className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all duration-300 group"
+              >
+                <Facebook className="w-5 h-5 text-text-secondary group-hover:text-white transition-colors duration-300" />
+              </button>
+              <button
+                onClick={() => handleSocialClick('LinkedIn')}
+                className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all duration-300 group"
+              >
+                <Linkedin className="w-5 h-5 text-text-secondary group-hover:text-white transition-colors duration-300" />
+              </button>
+              <button
+                onClick={() => handleSocialClick('Twitter')}
+                className="w-12 h-12 bg-transparent border border-gray-600 rounded-full flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all duration-300 group"
+              >
+                <Twitter className="w-5 h-5 text-text-secondary group-hover:text-white transition-colors duration-300" />
+              </button>
+            </div>
+
+            {/* Orange Lightning Icon */}
+            <div className="flex items-center justify-center">
+              <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex gap-8">
+              <button
+                onClick={() => handleNavClick('Services')}
+                className="text-white font-montserrat font-medium hover:text-brand-orange transition-colors duration-300"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => handleNavClick('Testimonials')}
+                className="text-white font-montserrat font-medium hover:text-brand-orange transition-colors duration-300"
+              >
+                Testimonials
+              </button>
+            </div>
+          </div>
+
+          {/* Main Text */}
+          <div className="text-center">
+            <p className="text-white text-lg font-montserrat">
+              Build a powerful agency site
+            </p>
+            <p className="text-white text-lg font-montserrat">
+              with love.
+            </p>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center pt-8 border-t border-gray-800 w-full">
+            <p className="text-text-secondary text-sm font-montserrat">
+              © Spark trend 2016. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
