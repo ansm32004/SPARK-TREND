@@ -4,16 +4,20 @@ import { Button } from "@/components/ui/button";
 const FAQSection = () => {
   const faqs = [
     {
-      question: "What is your pricing?",
-         answer: "Pricing depends on your project requirements. Please contact us for more information."
+      question: "What services does Spark Trend offer?",
+      answer: "We specialize in website design and development, digital marketing strategies, brand identity creation, SEO optimization, and social media management to help your business grow online."
     },
     {
-      question: "What is your pricing?",
-         answer: "We work with a variety of clients and tailor our services to meet your needs."
+      question: "How long does it take to complete a project?",
+      answer: "Project timelines vary depending on scope and complexity. Typically, website projects take 4-8 weeks, while comprehensive marketing campaigns can take 2-3 months to fully implement and optimize."
     },
     {
-      question: "What is your pricing?",
-         answer: "Timelines vary by project. We'll provide an estimated schedule after discussing your requirements."
+      question: "What is your pricing structure?",
+      answer: "Our pricing is project-based and tailored to your specific needs and budget. We offer transparent pricing with no hidden fees. Contact us for a detailed quote based on your requirements."
+    },
+    {
+      question: "Do you provide ongoing support after project completion?",
+      answer: "Yes, we offer various maintenance and support packages to ensure your website and marketing campaigns continue to perform optimally. We're here to help your business grow long-term."
     }
   ];
 
@@ -39,7 +43,7 @@ const FAQSection = () => {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="max-w-3xl mx-auto mb-12">
+        <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
@@ -56,16 +60,16 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
-
-        {/* CTA Button */}
-        <div className="text-center">
-          <Button
-            onClick={handleScheduleCall}
-            className="bg-brand-orange hover:bg-brand-orange-hover text-primary-foreground px-12 py-6 text-lg font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            Discovery call →
-          </Button>
+          
+          {/* CTA Button with same spacing as FAQ items */}
+          <div className="mt-4">
+            <Button
+              onClick={handleScheduleCall}
+              className="w-full bg-brand-orange hover:bg-brand-orange-hover text-primary-foreground px-12 py-8 text-lg font-semibold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Discovery call →
+            </Button>
+          </div>
         </div>
       </div>
     </section>

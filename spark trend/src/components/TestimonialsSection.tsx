@@ -10,7 +10,7 @@ const TestimonialsSection = () => {
     },
     {
       rating: 5,
-      text: "Lovable has helped us create more value with their confidence. Our SignIt. Team had a wonderful time with the outstanding UX team and achieved all of our goals.",
+      text: "Spark Trend has helped us create more value with their confidence. Our SignIt. Team had a wonderful time with the outstanding UX team and achieved all of our goals.",
       author: "Gary Coleman",
       company: "Art Director at SigmaSoft"
     },

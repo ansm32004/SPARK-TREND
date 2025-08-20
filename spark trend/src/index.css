@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,8 +52,18 @@ All colors MUST be HSL.
     --surface-hover: 0 0% 12%;
 
     /* Gradients */
-    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(var(--brand-orange) / 0.1) 0%, transparent 50%);
-    --gradient-conic: conic-gradient(from 180deg at 50% 50%, hsl(var(--brand-orange) / 0.1) 0deg, transparent 60deg, hsl(var(--brand-orange) / 0.1) 120deg, transparent 180deg);
+    --gradient-radial: radial-gradient(
+      circle at 50% 50%,
+      hsl(var(--brand-orange) / 0.1) 0%,
+      transparent 50%
+    );
+    --gradient-conic: conic-gradient(
+      from 180deg at 50% 50%,
+      hsl(var(--brand-orange) / 0.1) 0deg,
+      transparent 60deg,
+      hsl(var(--brand-orange) / 0.1) 120deg,
+      transparent 180deg
+    );
 
     /* Animations */
     --animate-slow: 8s linear infinite;
@@ -87,11 +99,16 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased scroll-smooth;
+    @apply bg-background text-foreground antialiased scroll-smooth;
+    font-family: "Montserrat", sans-serif;
   }
 
   .hero-text {
-    background: linear-gradient(135deg, hsl(var(--text-primary)), hsl(var(--brand-orange)));
+    background: linear-gradient(
+      135deg,
+      hsl(var(--text-primary)),
+      hsl(var(--brand-orange))
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -102,8 +119,12 @@ All colors MUST be HSL.
   }
 
   @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   .floating {
@@ -111,8 +132,12 @@ All colors MUST be HSL.
   }
 
   @keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-10px); }
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
   }
 
   /* Smooth scrolling for anchor links */

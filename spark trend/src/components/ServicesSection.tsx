@@ -6,7 +6,6 @@ const ServicesSection = () => {
       number: "1",
       title: "CLARITY BEFORE CREATION",
       description: "We audit your brand from the inside out. Split what clicks and what holds you back, lay the strategy before the first design.",
-      features: ["Gaps", "Patterns", "Storytelling", "Persuasion", "Research"],
       ctaText: "Discovery call",
       imageContent: (
         <div className="w-full max-w-md aspect-square bg-gradient-to-br from-surface to-surface/20 rounded-2xl border border-border/20 flex items-center justify-center">
@@ -25,7 +24,6 @@ const ServicesSection = () => {
       number: "2", 
       title: "IDENTITY IN MOTION",
       description: "Build a brand system that moves and lives across all channels. We create comprehensive visual guidelines and brand experiences.",
-      features: ["Brand Design", "Visual Systems", "Guidelines", "Applications"],
       ctaText: "Brand package",
       imageContent: (
         <div className="w-full max-w-md aspect-square bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl border border-border/20 p-6 flex items-center justify-center">
@@ -50,7 +48,6 @@ const ServicesSection = () => {
       number: "3",
       title: "LAUNCH & MOMENTUM", 
       description: "Put your brand in front of the right audiences. Targeted launch plans to bring visibility to your new image.",
-      features: ["Launch Strategy", "Market Entry", "Growth Plans", "Optimization"],
       ctaText: "Schedule call",
       imageContent: (
         <div className="w-full max-w-md aspect-square bg-gradient-to-br from-brand-orange/20 to-red-500/20 rounded-2xl border border-border/20 p-6 flex items-center justify-center">
@@ -75,16 +72,16 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="services">
+    <section className="py-24 bg-background font-['Montserrat']" id="services">
       <div className="container mx-auto px-8">
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block bg-brand-orange rounded-full px-8 py-3 mb-8">
-            <span className="text-primary-foreground text-sm font-semibold tracking-wide uppercase">
+            <span className="text-primary-foreground text-sm font-semibold tracking-wide uppercase font-['Montserrat']">
               Services
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight font-['Montserrat']">
             BRANDS DON'T BREAK AT SCALE —{" "}
             <span className="hero-text">THEY CRACK AT THE FOUNDATION</span>
           </h2>
@@ -98,9 +95,9 @@ const ServicesSection = () => {
               number={service.number}
               title={service.title}
               description={service.description}
-              features={service.features}
               ctaText={service.ctaText}
               imageContent={service.imageContent}
+              imageOnLeft={index % 2 === 0}
               className="animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` } as React.CSSProperties}
             />
