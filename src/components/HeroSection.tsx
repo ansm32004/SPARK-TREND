@@ -1,54 +1,41 @@
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MobileNavigation from "@/components/MobileNavigation";
 import heroBg from "@/assets/hero-bg.png";
 import logoImage from "@/assets/logo.png";
-import lenovoLogo from "@/assets/brand-logos/Lenovo.png";
-import wowLogo from "@/assets/brand-logos/Wow skin science.png";
-import groheLogo from "@/assets/brand-logos/Wow momo.png";
-import hyattLogo from "@/assets/brand-logos/Hyatt regency Delhi.png";
-import { useEffect } from "react";
+import lenovoLogo from "@/assets/brand-logos/lenovo.svg";
+import wowLogo from "@/assets/brand-logos/wow.svg";
+import groheLogo from "@/assets/brand-logos/grohe.svg";
+import hyattLogo from "@/assets/brand-logos/hyatt.svg";
 
 const HeroSection = () => {
   useEffect(() => {
-    // Cal.com initialization
-    (function (C, A, L) {
-      let p = function (a, ar) {
-        a.q.push(ar);
-      };
-      let d = C.document;
-      C.Cal =
-        C.Cal ||
-        function () {
-          let cal = C.Cal;
-          let ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            d.head.appendChild(d.createElement("script")).src = A;
-            cal.loaded = true;
+    // Cal.com initialization with proper TypeScript handling
+    try {
+      const initCalCom = () => {
+        const script = document.createElement('script');
+        script.src = 'https://app.cal.com/embed/embed.js';
+        script.async = true;
+        script.onload = () => {
+          // Initialize Cal.com after script loads
+          if (typeof window !== 'undefined' && (window as any).Cal) {
+            (window as any).Cal("init", "30min", { origin: "https://app.cal.com" });
+            (window as any).Cal.ns["30min"]("ui", { 
+              hideEventTypeDetails: false, 
+              layout: "month_view" 
+            });
           }
-          if (ar[0] === L) {
-            const api = function () {
-              p(api, arguments);
-            };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === "string") {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ["initNamespace", namespace]);
-            } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
         };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
+        document.head.appendChild(script);
+      };
 
-    // @ts-ignore
-    Cal("init", "30min", { origin: "https://app.cal.com" });
-
-    // @ts-ignore
-    Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      // Only initialize if not already loaded
+      if (!(window as any).Cal) {
+        initCalCom();
+      }
+    } catch (error) {
+      console.warn('Cal.com initialization failed:', error);
+    }
   }, []);
 
   return (
@@ -76,8 +63,8 @@ const HeroSection = () => {
               </h1>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 items-start mb-20">
-                <Button size="lg" className="text-base px-8 py-4 rounded-full">
+              <div className="flex flex-col xs:flex-row gap-4 sm:gap-6 items-start mb-12 sm:mb-16 lg:mb-20">
+                <Button size="lg" className="text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-full w-full xs:w-auto">
                   Discovery call
                   <svg 
                     width="16" 
@@ -96,7 +83,7 @@ const HeroSection = () => {
                     />
                   </svg>
                 </Button>
-                <Button variant="outline" size="lg" className="text-base px-8 py-4 rounded-full">
+                <Button variant="outline" size="lg" className="text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-full w-full xs:w-auto">
                   Reach out
                 </Button>
               </div>
@@ -141,7 +128,7 @@ const LogoCarousel = () => {
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={index}
-                className={`${logo.width} h-6 flex items-center justify-center flex-shrink-0`}
+                className={`${logo.width} h-4 sm:h-5 lg:h-6 flex items-center justify-center flex-shrink-0`}
               >
                 <img src={logo.src} alt={logo.alt} className="h-full object-contain" draggable="false" />
               </div>
