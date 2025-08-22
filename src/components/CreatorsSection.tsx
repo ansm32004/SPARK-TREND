@@ -36,20 +36,48 @@ const creators = [
 
 function CreatorsSection() {
   return (
-    <section className="py-32 bg-black" id="creators" aria-labelledby="creators-heading">
-      <div className="container mx-auto px-8">
+    <section className="py-16 sm:py-24 lg:py-32 bg-black" id="creators" aria-labelledby="creators-heading">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2
             id="creators-heading"
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-orange-500 uppercase tracking-tight mb-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-orange-500 uppercase tracking-tight mb-2 px-2"
           >
             CREATORS WE'VE WORKED WITH
           </h2>
         </div>
 
-        {/* Creator Cards */}
-        <div className="flex justify-center items-center gap-6 max-w-7xl mx-auto overflow-x-auto pb-4">
+        {/* Creator Cards - Mobile: Grid, Desktop: Horizontal scroll */}
+        <div className="lg:hidden grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          {creators.slice(0, 4).map((creator) => (
+            <div key={creator.id} className="group">
+              <div className="bg-zinc-900/60 backdrop-blur-sm rounded-xl p-3 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-zinc-900/80 border border-zinc-800/50 flex flex-col items-center">
+                {/* Profile Image */}
+                <div className="relative mb-3 mx-auto">
+                  <div className="w-20 h-24 mx-auto rounded-lg overflow-hidden shadow-lg">
+                    <img
+                      src={creator.image}
+                      alt={creator.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </div>
+                </div>
+                
+                {/* Creator Info */}
+                <div className="text-center">
+                  <p className="text-gray-400 text-xs mb-1 font-medium">{creator.followers}</p>
+                  <h3 className="text-white font-bold text-sm leading-tight">{creator.name}</h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Creator Cards - Desktop: Horizontal scroll */}
+        <div className="hidden lg:flex justify-center items-center gap-6 max-w-7xl mx-auto overflow-x-auto pb-4">
           {creators.map((creator) => (
             <div key={creator.id} className="flex-shrink-0 group">
               <div className="bg-zinc-900/60 backdrop-blur-sm rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-zinc-900/80 border border-zinc-800/50 h-96 min-w-[200px] max-w-[220px] flex items-center justify-center">
@@ -62,8 +90,6 @@ function CreatorsSection() {
                         alt={creator.name}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
-                        width={96}
-                        height={96}
                         draggable={false}
                       />
                     </div>
@@ -78,6 +104,13 @@ function CreatorsSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Show More Button on Mobile */}
+        <div className="lg:hidden text-center mt-6">
+          <button className="text-orange-500 hover:text-orange-400 transition-colors duration-300 text-sm font-medium">
+            View All Creators →
+          </button>
         </div>
       </div>
     </section>

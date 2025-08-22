@@ -72,23 +72,23 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background font-['Montserrat']" id="services">
-      <div className="container mx-auto px-8">
+    <section className="py-12 sm:py-16 lg:py-24 bg-background font-['Montserrat']" id="services">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block bg-brand-orange rounded-full px-8 py-3 mb-8">
-            <span className="text-primary-foreground text-sm font-semibold tracking-wide uppercase font-['Montserrat']">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="inline-block bg-brand-orange rounded-full px-6 sm:px-8 py-2 sm:py-3 mb-6 sm:mb-8">
+            <span className="text-primary-foreground text-xs sm:text-sm font-semibold tracking-wide uppercase font-['Montserrat']">
               Services
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight font-['Montserrat']">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary max-w-4xl mx-auto leading-tight font-['Montserrat'] px-4">
             BRANDS DON'T BREAK AT SCALE —{" "}
             <span className="hero-text">THEY CRACK AT THE FOUNDATION</span>
           </h2>
         </div>
 
         {/* Services Grid */}
-        <div className="space-y-12 max-w-6xl mx-auto">
+        <div className="space-y-8 sm:space-y-10 lg:space-y-12 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <ServiceCard
               key={index}

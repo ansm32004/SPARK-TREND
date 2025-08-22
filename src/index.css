@@ -101,6 +101,48 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground antialiased scroll-smooth;
     font-family: "Montserrat", sans-serif;
+    /* Improve text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent horizontal scrolling on mobile */
+    overflow-x: hidden;
+    /* Improve touch scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent body scroll when mobile menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Responsive typography */
+  html {
+    scroll-behavior: smooth;
+    /* Base font size for better mobile readability */
+    font-size: 16px;
+  }
+
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  /* Better mobile viewport handling */
+  @media screen and (max-width: 768px) {
+    .hero-text {
+      word-break: break-word;
+      hyphens: auto;
+    }
+  }
+
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 
   .hero-text {
@@ -140,8 +182,57 @@ All colors MUST be HSL.
     }
   }
 
-  /* Smooth scrolling for anchor links */
-  html {
-    scroll-behavior: smooth;
+  /* Responsive breakpoint utilities */
+  .xs\:flex-row {
+    @media (min-width: 475px) {
+      flex-direction: row;
+    }
+  }
+
+  .xs\:w-auto {
+    @media (min-width: 475px) {
+      width: auto;
+    }
+  }
+
+  /* Better focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--brand-orange));
+    outline-offset: 2px;
+  }
+
+  /* Improved button hover states on touch devices */
+  @media (hover: hover) {
+    .hover\:scale-105:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  /* Prevent zoom on input focus for iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Smooth scrolling with reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .logo-scroll {
+      animation: none;
+    }
+
+    .floating {
+      animation: none;
+    }
+
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
   }
 }
